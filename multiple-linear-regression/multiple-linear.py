@@ -19,7 +19,7 @@ X = onehotencoder.fit_transform(X).toarray()
 X = X[:, 1:]  
 
 # splitting dataset into training set and test set
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
 # fit multiple linear regressor to training set
@@ -39,6 +39,16 @@ X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis = 1)
 # lower the p-value the more significant the variable is 
 # wrt independent variable 
 
+#In terms of linear regression, 
+#the null hypothesis is the assumption that the parameters associated to your 
+#independent variables are equal to zero. Therefore under this hypothesis, 
+#your observations are totally random, and don't follow a certain pattern.
+
+#The P-value is the probability that the parameters associated to your 
+#independent variables have certain nonzero values, given that 
+#the null hypothesis is True.
+
+# H0: The variable is not signifciant
 ## start from all predictors
 X_opt = X[:, [0,1,2,3,4,5]]
 ## fit the model 
