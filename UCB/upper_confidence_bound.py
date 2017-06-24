@@ -26,9 +26,11 @@ for n in range(0, N):
             upper_bound = average_reward + delta_i
         else:
             upper_bound = 1e400
+        
         if upper_bound > max_upper_bound:
             max_upper_bound = upper_bound
             ad = i
+    
     ads_selected.append(ad)
     numbers_of_selections[ad] = numbers_of_selections[ad] + 1
     reward = dataset.values[n, ad]
