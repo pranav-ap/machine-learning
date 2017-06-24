@@ -10,15 +10,18 @@ dataset = pd.read_csv('Ads_CTR_Optimisation.csv')
 
 # Implementing UCB
 import math
+
 N = 10000
 d = 10
 ads_selected = []
 numbers_of_selections = [0] * d
 sums_of_rewards = [0] * d
 total_reward = 0
+
 for n in range(0, N):
     ad = 0
     max_upper_bound = 0
+    # find the ad with the greatest upper bound
     for i in range(0, d):
         if (numbers_of_selections[i] > 0):
             average_reward = sums_of_rewards[i] / numbers_of_selections[i]
